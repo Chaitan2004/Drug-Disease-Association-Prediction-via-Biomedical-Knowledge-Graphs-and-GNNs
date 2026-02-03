@@ -5,6 +5,7 @@ from keras.layers import LayerNormalization
 from keras import layers
 from keras.models import Sequential
 from keras.layers import  Bidirectional,LSTM
+from transformers import TFBertModel
 
 
 def weight_variable_glorot(input_dim, output_dim, name=""):
@@ -198,6 +199,15 @@ class InnerProductDecoder():
     def __call__(self, inputs):
         with tf.compat.v1.name_scope(self.name):
             inputs = tf.compat.v1.nn.dropout(inputs, 1-self.dropout)
+            rank = tf.rank(inputs)
+            inputs = tf.cond(
+                tf.equal(rank, 1),
+                lambda: tf.expand_dims(inputs, 0),
+                lambda: inputs
+            )
+
+            # Defensive reshape for dynamic shapes
+            inputs = tf.reshape(inputs, [-1, tf.shape(inputs)[-1]])
 
             R = inputs[0:self.num_r, :]
             D = inputs[self.num_r:, :]
@@ -261,3 +271,105 @@ class GraphSAGEConvolution():
             outputs = self.act(h_out)
 
             return outputs
+
+
+class GraphBERTLayer(tf.keras.layers.Layer):
+    def __init__(self, embed_dim, num_heads=4, dropout_rate=0.1, name=None):
+        super(GraphBERTLayer, self).__init__(name=name)
+        self.embed_dim = embed_dim
+        self.num_heads = num_heads
+        # ensure key_dim divides embed_dim
+        if embed_dim % num_heads != 0:
+            # fallback: use floor division but warn
+            self.key_dim = embed_dim // num_heads
+        else:
+            self.key_dim = embed_dim // num_heads
+
+        # Keras MHA expects key_dim = dimension per head
+        self.att = tf.keras.layers.MultiHeadAttention(
+            num_heads=self.num_heads,
+            key_dim=self.key_dim,
+            name=(name or "graphbert_mha")
+        )
+        self.ffn = tf.keras.Sequential([
+            tf.keras.layers.Dense(self.embed_dim * 4, activation='relu'),
+            tf.keras.layers.Dense(self.embed_dim)
+        ], name=(name or "graphbert_ffn"))
+        self.norm1 = tf.keras.layers.LayerNormalization(epsilon=1e-6)
+        self.norm2 = tf.keras.layers.LayerNormalization(epsilon=1e-6)
+        self.dropout1 = tf.keras.layers.Dropout(dropout_rate)
+        self.dropout2 = tf.keras.layers.Dropout(dropout_rate)
+
+    def call(self, x, training=False):
+        # x can be [N, D] (nodes as one sequence) or [batch, seq_len, D]
+        # Convert to [batch, seq_len, D] safely where batch==1 if needed.
+
+        # dynamic rank
+        rank = tf.rank(x)
+        def expand():          # when x is [N, D]
+            return tf.expand_dims(x, axis=0)   # -> [1, N, D]
+        def keep():            # when x is already [B, S, D]
+            return x
+        x_exp = tf.cond(tf.equal(rank, 2), expand, keep)
+
+        # ensure static last dim known to MHA: give Keras some shape hints
+        # If possible, set static shape (best-effort)
+        try:
+            x_exp = tf.ensure_shape(x_exp, [None, None, self.embed_dim])
+        except Exception:
+            # ensure_shape can raise if shapes unknown; ignore safely
+            pass
+
+        # Self-attention
+        attn_output = self.att(x_exp, x_exp, training=training)  # [B, S, D]
+        attn_output = self.dropout1(attn_output, training=training)
+        out1 = self.norm1(x_exp + attn_output)
+
+        # Feed-forward
+        ffn_output = self.ffn(out1)
+        ffn_output = self.dropout2(ffn_output, training=training)
+        out2 = self.norm2(out1 + ffn_output)  # [B, S, D]
+
+        # If original input was rank 2, return rank-2 [S, D], else return [B, S, D]
+        def squeeze(): return tf.squeeze(out2, axis=0)
+        def passthrough(): return out2
+        out_final = tf.cond(tf.equal(rank, 2), squeeze, passthrough)
+
+        return out_final
+
+
+class BioBERTEncoder(tf.keras.layers.Layer):
+    def __init__(self, emb_dim, trainable=False, **kwargs):
+        super().__init__(**kwargs)
+
+        self.biobert = TFBertModel.from_pretrained(
+            "dmis-lab/biobert-base-cased-v1.1",
+            from_pt=True          # 🔥 critical fix
+        )
+
+        self.biobert.trainable = trainable
+        self.proj = tf.keras.layers.Dense(emb_dim)
+
+    def call(self, input_ids, attention_mask):
+        outputs = self.biobert(
+            input_ids=input_ids,
+            attention_mask=attention_mask
+        )
+
+        cls_emb = outputs.last_hidden_state[:, 0, :]  # [B, 768]
+        return self.proj(cls_emb)                     # [B, emb_dim]
+
+class GatedFusion(tf.keras.layers.Layer):
+    def __init__(self, emb_dim):
+        super().__init__()
+        self.emb_dim = emb_dim
+        self.gate = tf.keras.layers.Dense(emb_dim, activation="sigmoid")
+
+    def call(self, graph_emb, text_emb):
+        # 🔥 Force static feature dimension for Keras Dense
+        graph_emb = tf.ensure_shape(graph_emb, [None, self.emb_dim])
+        text_emb  = tf.ensure_shape(text_emb,  [None, self.emb_dim])
+
+        gate = self.gate(graph_emb)
+        return gate * graph_emb + (1.0 - gate) * text_emb
+

@@ -1,0 +1,201 @@
+DiseaseID,DiseaseName,disease_index
+MESH:D055371,Acute Lung Injury,15
+MESH:D003092,Colitis,17
+MESH:D001169,"Arthritis, Experimental",32
+MESH:D011183,Postoperative Complications,42
+MESH:D064420,Drug-Related Side Effects and Adverse Reactions,52
+MESH:D002277,Carcinoma,59
+MESH:D005923,"Glomerulosclerosis, Focal Segmental",108
+MESH:D012871,Skin Diseases,123
+MESH:D007414,Intestinal Neoplasms,130
+MESH:D001423,Bacterial Infections and Mycoses,132
+MESH:D015470,"Leukemia, Myeloid, Acute",136
+MESH:D007744,Obstetric Labor Complications,162
+MESH:D006937,Hypercholesterolemia,191
+MESH:D006505,Hepatitis,198
+MESH:D001919,Bradycardia,234
+MESH:D020820,Dyskinesias,249
+MESH:D028361,Mitochondrial Diseases,252
+MESH:D013119,Spinal Cord Injuries,254
+MESH:D034381,Hearing Loss,257
+MESH:D012080,Chronic Kidney Disease-Mineral and Bone Disorder,262
+MESH:D058226,"Plaque, Atherosclerotic",267
+MESH:D012516,Osteosarcoma,276
+MESH:D018188,Cardiovirus Infections,284
+MESH:D018357,Respiratory Syncytial Virus Infections,285
+MESH:D008171,Lung Diseases,288
+MESH:D009461,Neurologic Manifestations,292
+MESH:D049188,Prenatal Injuries,308
+MESH:D018771,Arthralgia,309
+MESH:D019457,Chromosome Breakage,313
+MESH:D001259,Ataxia,335
+MESH:D003967,Diarrhea,336
+MESH:D054218,Precursor T-Cell Lymphoblastic Leukemia-Lymphoma,353
+MESH:D015529,Choledochal Cyst,357
+MESH:D006317,"Hearing Loss, Noise-Induced",378
+MESH:D017109,"Akathisia, Drug-Induced",383
+MESH:D010302,"Parkinson Disease, Secondary",397
+MESH:D051436,"Renal Insufficiency, Chronic",407
+MESH:D005705,Gallbladder Diseases,431
+MESH:D006342,"Heart Rupture, Post-Infarction",434
+MESH:D006030,"Glycosuria, Renal",452
+MESH:D011115,Polyneuropathies,470
+MESH:D019465,Craniofacial Abnormalities,471
+MESH:D012509,Sarcoma,481
+MESH:D010149,Postoperative Pain,537
+MESH:D007235,"Infant, Premature, Diseases",561
+MESH:D011559,Pseudotumor Cerebri,568
+MESH:D009497,Neurotic Disorders,576
+MESH:D015834,Cochlear Diseases,590
+MESH:D006402,Hematologic Diseases,603
+MESH:D006501,Hepatic Encephalopathy,604
+MESH:D010214,Papillon-Lefevre Disease,622
+MESH:D006977,"Hypertension, Renal",653
+MESH:D013617,"Tachycardia, Supraventricular",654
+MESH:D000743,"Anemia, Hemolytic",666
+MESH:D005076,Exanthema,680
+MESH:D007826,Laryngismus,693
+MESH:D008582,"Meningitis, Aseptic",695
+MESH:D010493,Pericarditis,700
+MESH:D017285,Polymyositis,702
+MESH:D011697,"Purpura, Thrombotic Thrombocytopenic",705
+MESH:D012851,"Sinus Thrombosis, Intracranial",712
+MESH:D005483,Flushing,722
+MESH:D003551,Cysticercosis,744
+MESH:D004605,"Elephantiasis, Filarial",746
+MESH:D008173,"Lung Diseases, Obstructive",761
+MESH:D011472,Prostatitis,781
+MESH:D017492,"Keratosis, Seborrheic",788
+MESH:D018450,Disease Progression,806
+MESH:D017496,Hypopigmentation,808
+MESH:D006130,Growth Disorders,876
+MESH:D005315,Fetal Diseases,907
+MESH:D060585,Fusariosis,935
+MESH:D016481,Helicobacter Infections,941
+MESH:C536777,Systemic candidiasis,975
+MESH:D004698,"Endocarditis, Subacute Bacterial",980
+MESH:D008109,"Liver Diseases, Parasitic",999
+MESH:D000784,Aortic Dissection,1002
+MESH:D009396,Wilms Tumor,1012
+MESH:D004716,Endometritis,1015
+MESH:D011251,"Pregnancy Complications, Infectious",1024
+MESH:D013163,Splenomegaly,1033
+MESH:D020149,Manganese Poisoning,1036
+MESH:D012216,Rheumatic Diseases,1040
+MESH:D008607,Intellectual Disability,1061
+MESH:D008548,Melanosis,1104
+MESH:D016736,Antiphospholipid Syndrome,1116
+MESH:D004916,Erythromelalgia,1122
+MESH:D001146,"Arrhythmia, Sinus",1158
+MESH:D007040,Hypoventilation,1162
+MESH:D009216,Myopia,1164
+MESH:D014786,Vision Disorders,1168
+MESH:D011350,Proctocolitis,1188
+MESH:D005534,Foot Diseases,1205
+MESH:D007241,Infectious Bovine Rhinotracheitis,1227
+MESH:D057772,Vascular System Injuries,1237
+MESH:D020165,Carbamoyl-Phosphate Synthase I Deficiency Disease,1252
+MESH:D001997,Bronchopulmonary Dysplasia,1277
+MESH:D007969,"Leukomalacia, Periventricular",1281
+MESH:D006954,Hyperlipoproteinemia Type V,1292
+MESH:D018262,"Adenocarcinoma, Clear Cell",1312
+MESH:D054685,"Lymphoma, Primary Effusion",1323
+MESH:D019569,Hemifacial Spasm,1332
+MESH:D005402,Fistula,1334
+MESH:D009901,Optic Nerve Diseases,1341
+MESH:D007246,Infertility,1366
+MESH:D019305,"Epilepsy, Rolandic",1421
+MESH:D003294,"Seizures, Febrile",1426
+MESH:D010032,Otitis Externa,1427
+MESH:D017240,Mitochondrial Myopathies,1454
+MESH:D055744,Invasive Pulmonary Aspergillosis,1460
+MESH:D020138,Hyperhomocysteinemia,1462
+MESH:C565730,"Diabetes Mellitus, Congenital Autoimmune",1463
+MESH:D011001,Pleuropneumonia,1464
+MESH:D003428,Cross Infection,1471
+MESH:D008178,"Lupus Erythematosus, Cutaneous",1512
+MESH:D059352,Musculoskeletal Pain,1523
+MESH:D010236,"Paraganglioma, Extra-Adrenal",1572
+MESH:D007174,"Disruptive, Impulse Control, and Conduct Disorders",1583
+MESH:D000008,Abdominal Neoplasms,1585
+MESH:D008010,Lichen Planus,1587
+MESH:D052556,"Niemann-Pick Disease, Type C",1596
+MESH:D014647,Varicose Ulcer,1603
+MESH:D014694,Ventricular Outflow Obstruction,1630
+MESH:D054179,"Angioedemas, Hereditary",1686
+MESH:D006406,Hematoma,1727
+MESH:D009220,Myositis,1733
+MESH:D016781,"Toxoplasmosis, Cerebral",1743
+MESH:D044903,Congenital Hyperinsulinism,1749
+MESH:D005761,"Gastroenteritis, Transmissible, of Swine",1770
+MESH:D001651,"Cholestasis, Extrahepatic",1789
+MESH:D012983,Soft Tissue Neoplasms,1800
+MESH:D011475,Prosthesis Failure,1810
+MESH:D000033,"Abortion, Threatened",1819
+MESH:D007634,Keratitis,1823
+MESH:D009468,Neuromuscular Diseases,1828
+MESH:D053159,Dysuria,1848
+MESH:D002578,Uterine Cervical Dysplasia,1885
+MESH:D014010,Tinea Versicolor,1893
+MESH:D005494,Folic Acid Deficiency,1921
+MESH:D006502,Budd-Chiari Syndrome,1929
+MESH:D010850,Picornaviridae Infections,1949
+MESH:D014006,Tinea Capitis,1968
+MESH:D020152,Antithrombin III Deficiency,1970
+MESH:D004881,Ergotism,1990
+MESH:D009196,Myeloproliferative Disorders,1993
+MESH:D001913,Bowen's Disease,1998
+MESH:D002805,Chondrocalcinosis,2006
+MESH:D008831,Microcephaly,2016
+MESH:D014385,"Tuberculosis, Gastrointestinal",2021
+MESH:D000219,Adams-Stokes Syndrome,2023
+MESH:D008992,Monkey Diseases,2034
+MESH:D013319,"Strongyle Infections, Equine",2036
+MESH:D009084,Mucopolysaccharidosis III,2051
+MESH:D050798,SUNCT Syndrome,2053
+MESH:D001471,Barrett Esophagus,2054
+MESH:D012078,Renal Artery Obstruction,2091
+MESH:D000081029,Pulmonary Arterial Hypertension,2099
+MESH:D044342,Malnutrition,2106
+MESH:D015362,Child Nutrition Disorders,2108
+MESH:D004685,"Encephalomyelitis, Venezuelan Equine",2116
+MESH:D020178,"Sleep Disorders, Circadian Rhythm",2123
+MESH:D018196,"Carcinoma, Adenosquamous",2154
+MESH:D004749,Entamoebiasis,2174
+MESH:D009059,Mouth Diseases,2177
+MESH:D000795,Fabry Disease,2182
+MESH:D003318,Corneal Opacity,2193
+MESH:D013705,Temporomandibular Joint Disorders,2200
+MESH:D065666,Mesenteric Ischemia,2215
+MESH:D001044,Aphonia,2236
+MESH:D020293,"Vasculitis, Central Nervous System",2239
+MESH:D046349,"Coproporphyria, Hereditary",2247
+MESH:D012010,"Red-Cell Aplasia, Pure",2256
+MESH:D013651,Taste Disorders,2262
+MESH:D013581,Synovial Cyst,2265
+MESH:D014256,Trichotillomania,2269
+MESH:C536404,"Nephrotic syndrome, idiopathic, steroid-resistant",2272
+MESH:D012163,Retinal Detachment,2273
+MESH:D007871,Leg Ulcer,2283
+MESH:D013121,Spinal Curvatures,2304
+MESH:C536827,Glomus vagale tumors,2312
+MESH:D012552,Schistosomiasis,2318
+MESH:D015868,Pars Planitis,2323
+MESH:D011693,Purpura,2324
+MESH:D001039,"Aphasia, Broca",2339
+MESH:D018240,Endodermal Sinus Tumor,2342
+MESH:D012600,Scoliosis,2370
+MESH:D006479,"Hemorrhagic Fever, Crimean",2379
+MESH:D006480,Hemorrhagic Fever with Renal Syndrome,2380
+MESH:D014646,Varicocele,2404
+MESH:D007340,Insulinoma,2424
+MESH:D018567,"Breast Neoplasms, Male",2434
+MESH:D005316,Fetal Distress,2443
+MESH:D051261,"Granulomatosis, Orofacial",2453
+MESH:D054747,Histiocytic Sarcoma,2454
+MESH:D018318,"Neurofibroma, Plexiform",2455
+MESH:D001602,Beriberi,2458
+MESH:D004480,Ectromelia,2461
+MESH:D018242,"Neuroectodermal Tumors, Primitive",2463
+MESH:D001762,Blepharitis,2469
+MESH:D002822,Choriocarcinoma,2476
