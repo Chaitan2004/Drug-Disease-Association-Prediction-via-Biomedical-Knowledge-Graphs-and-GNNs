@@ -4,8 +4,8 @@ from pathlib import Path
 
 
 RNG_SEED = 42
-NUM_DRUGS = 200
-NUM_DISEASES = 200
+NUM_DRUGS = 2000
+NUM_DISEASES = 2000
 
 
 def load_matrix(path, delimiter=None):
